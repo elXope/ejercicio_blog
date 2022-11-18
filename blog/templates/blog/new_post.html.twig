@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Post{% endblock %}
+
+{% block indexClass %}{% endblock %}
+{% block servicesClass %}{% endblock %}
+{% block blogClass %}class="active"{% endblock %}
+{% block portfolioClass %}{% endblock %}
+{% block contactClass %}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row contact-wrap">
+            <div class="col-md-6">
+                <div class="blogs">
+                    {{ form(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
