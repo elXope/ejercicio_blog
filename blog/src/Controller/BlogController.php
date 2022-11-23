@@ -10,15 +10,10 @@ use App\Entity\Post;
 use App\Form\PostFormType;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Component\Validator\Constraints\Length;
 
 class BlogController extends AbstractController
 {
-    #[Route('/blog', name: 'blog')]
-    public function blog(): Response
-    {
-        return $this->render('blog/index.html.twig', []);
-    }
-
     #[Route('/blog/new', name:'new_post')]
     public function newPost(ManagerRegistry $doctrine, Request $request, SluggerInterface $slugger): Response {
         $post = new Post();
@@ -53,4 +48,20 @@ class BlogController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
+    #[Route('/blog/{numBlog?last}', name: 'blog')]
+    public function blog(ManagerRegistry $doctrine, Request $request, string $numBlog): Response
+    {
+        $repository = $doctrine->getRepository(Post::class);
+        $lastPost = $repository->findAll();
+        $numBlog == "last" ? $numBlog = count($lastPost) - 1 : $numBlog = (int) $numBlog;
+        return $this->render('blog/index.html.twig', [
+            'post' => $lastPost[$numBlog],
+            'fecha' => $lastPost[$numBlog]->getFecha()->format('d-m-Y'),
+            'posts' => $lastPost,
+            'nBlog' => $numBlog
+        ]);
+    }
+
+    
 }
