@@ -40,6 +40,9 @@ class Post
     #[Assert\NotBlank(message:"Field 'Autor' is mandatory")]
     private ?string $autor = null;
 
+    #[ORM\ManyToOne]
+    private ?Comment $comments = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -125,6 +128,18 @@ class Post
     public function setAutor(string $autor): self
     {
         $this->autor = $autor;
+
+        return $this;
+    }
+
+    public function getComments(): ?Comment
+    {
+        return $this->comments;
+    }
+
+    public function setComments(?Comment $comments): self
+    {
+        $this->comments = $comments;
 
         return $this;
     }
