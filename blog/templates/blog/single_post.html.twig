@@ -13,9 +13,9 @@
 
 						<p>{{ post.cuerpo }}</p>
 
-						<div class="ficon">
+						{# <div class="ficon">
 							<a href="#" alt="">Learn more</a>
-						</div>
+						</div> #}
 					</div>
 				</div>
 				<div class="container">
@@ -54,14 +54,14 @@
 				</form>
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<strong>Popular Posts</strong>
+						<strong>Latest posts</strong>
 					</div>
 					{% set ind = 0 %}
 					{% for miniPost in posts %}
 						<div class="panel-body">
 						<div class="media">
 							<a class="media-left" href="#">
-								<img src="img/b.jpg" alt="">
+								<img class="img-thumbnail" src="{{ asset('img/' ~ miniPost.imagen) }}" alt="">
 							</a>
 							<div class="media-body">
 								<h4 class="media-heading">{{ miniPost.autor }}</h4>
