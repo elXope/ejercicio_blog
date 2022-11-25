@@ -1,0 +1,52 @@
+.like {
+    display: inline-block;
+    padding-left: 1rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.like__btnContainer {
+    display: inline-block;
+}
+
+.like__nLikesContainer {
+    display: inline-block;
+}
+
+.like__btn:link, .like__btn:visited {
+    display: block;
+    padding-left: 3rem;
+    padding-right: 2rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    background-color: #0db4be;
+    border-radius: 3px;
+    background-image: url("../img/like.png");
+    background-size: 2rem;
+    background-position: 3%;
+    background-repeat: no-repeat;
+    text-decoration: none;
+    color: #fff;
+}
+
+.messageBox {
+    padding: 1rem;
+    margin: 1rem;
+    border: 1px solid #0db4be;
+    font-style: normal;
+}
+
+.messageBox__name {
+    padding: 1rem;
+    margin: 1rem;
+    margin: .5rem;
+    background-color: #0db4be;
+    font-weight: 700;
+    color: #fff;
+}
+
+.messageBox__text {
+    padding: 1rem;
+    margin: .5rem;
+
+}

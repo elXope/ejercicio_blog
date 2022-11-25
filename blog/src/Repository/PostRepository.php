@@ -50,6 +50,16 @@ class PostRepository extends ServiceEntityRepository
        ;
    }
 
+   public function findOneById($value): ?Post
+   {
+       return $this->createQueryBuilder('p')
+           ->andWhere('p.id = :val')
+           ->setParameter('val', $value)
+           ->getQuery()
+           ->getOneOrNullResult()
+       ;
+   }
+
 //    /**
 //     * @return Post[] Returns an array of Post objects
 //     */

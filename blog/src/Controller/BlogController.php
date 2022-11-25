@@ -63,5 +63,15 @@ class BlogController extends AbstractController
         ]);
     }
 
-    
+    #[Route('/blog/like/{postId}', name:'blog_like')]
+    public function like(ManagerRegistry $doctrine, Request $request, string $postId): Response
+    {
+        $repository = $doctrine->getRepository(Post::class);
+        $likedPost = $repository->findOneById($postId);
+        $likedPost->setNLikes($likedPost->getNLikes() + 1);
+        $entityManager = $doctrine->getManager();
+        $entityManager->persist($likedPost);
+        $entityManager->flush();
+        return $this->redirectToRoute('blog', []);
+    }
 }

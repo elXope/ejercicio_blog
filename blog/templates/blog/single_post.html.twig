@@ -16,6 +16,20 @@
 						{# <div class="ficon">
 							<a href="#" alt="">Learn more</a>
 						</div> #}
+
+						<div class="like">
+							<div class="like__btnContainer">
+								<a class="like__btn" href="{{ path('blog_like', {postId : post.id}) }}">Like</a>
+							</div>
+							<div class="like__nLikesContainer">
+								<span class="like__nLikes">{{ post.nLikes }}</span>
+							</div>
+						</div>
+
+						<div class="messageBox">
+							<p class="messageBox__name">Name</p>
+							<p class="messageBox__text">Message message message message message message message message message message message message message.</p>
+						</div>
 					</div>
 				</div>
 				<div class="container">
